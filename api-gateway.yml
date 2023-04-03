@@ -3,21 +3,12 @@ server:
   error:
     include-message: always
 
-eureka:
-  instance:
-    instance-id: ${spring.application.name}:${random.value}
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
-
-
 spring:
   application:
     name: api-gateway
   cloud:
     discovery:
-        instanceId: ${spring.application.name}
+        instanceId: ${spring.application.name}:${random.value}
         health-check-interval: 15s
       config:
         management: 
