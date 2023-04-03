@@ -8,7 +8,7 @@ spring:
     name: api-gateway
   cloud:
     discovery:
-        instanceId: ${spring.application.name}:${random.value}
+        instanceId: ${spring.application.name}
         health-check-interval: 15s
       config:
         management: 
