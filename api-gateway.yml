@@ -16,8 +16,8 @@ spring:
           uri: lb://coupon-service
           predicates:
             - Path=/api/v1/coupons/**
-          filters:
-            - AuthenticationFilter
+#           filters:
+#             - AuthenticationFilter
     
     consul:
       discovery:
