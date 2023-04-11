@@ -12,7 +12,14 @@ spring:
           predicates:
             - Path=/api/v1/coupons/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
+              args:
+                validator: RouteValidator
+                template: template
+                jwtUtil: JwtUtil
+                config:
+                  publicUrls: # Specify a list of public URLs that do not require authentication
+                    - /api/v1/public/**
             
         - id: identity-service
           uri: lb://identity-service
