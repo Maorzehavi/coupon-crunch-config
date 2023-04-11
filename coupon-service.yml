@@ -2,7 +2,7 @@ spring:
   application:
     name: coupon-service
   datasource:
-    url: jdbc:mysql://localhost:1001/coupon_db?allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://localhost:1000/coupon_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
