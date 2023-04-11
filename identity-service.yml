@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: identity-service
+  datasource:
+    url: jdbc:mysql://localhost:1001/user_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  cloud:
+    discovery:
+      instanceId: ${spring.application.name}:${random.value}
+      health-check-interval: 15s
+      config:
+        management:
+          enabled: true
+
+server:
+  port: 0
+  error:
+    include-message: always
+
+jwt:
+  secret: 576D5A7134743777217A25432646294A404E635266556A586E3272357538782F
