@@ -12,20 +12,14 @@ spring:
           predicates:
             - Path=/api/v1/coupons/**
           filters:
-            - name: AuthenticationFilter
-              args:
-                validator: RouteValidator
-                template: template
-                jwtUtil: JwtUtil
-                config:
-                  publicUrls: # Specify a list of public URLs that do not require authentication
-                    - /api/v1/public/**
-            
+            - AuthFilter
+
         - id: identity-service
           uri: lb://identity-service
           predicates:
             - Path=/api/v1/auth/**
-   
+
+
     consul:
       discovery:
         instanceId: ${spring.application.name}
@@ -35,6 +29,9 @@ spring:
           enabled: true
 
 management:
+  endpoint:
+    gateway:
+      enabled: true
   endpoints:
     web:
       exposure:
@@ -46,4 +43,4 @@ server:
     include-message: always
 
 jwt:
-  secret: 576D5A7134743777217A25432646294A404E635266556A586E3272357538782F
+  secret: 576D5A7134743777217A25432646294A404E635266556A586E3272357538782Ftp://localhost:8888
