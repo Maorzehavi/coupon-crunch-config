@@ -11,8 +11,8 @@ spring:
           uri: lb://coupon-service
           predicates:
             - Path=/api/v1/coupons/**
-#           filters:
-#             - AuthFilter
+          filters:
+            - AuthFilter
 
         - id: identity-service
           uri: lb://identity-service
