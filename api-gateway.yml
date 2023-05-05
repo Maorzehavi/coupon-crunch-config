@@ -22,13 +22,18 @@ spring:
           filters:
             - ApikeyAuthFilter
             - JwtAuthFilter
-          
+
 
         - id: identity-service
           uri: lb://identity-service
           predicates:
             - Path=/api/v1/auth/**
-#             - Path=/api/v1/users/**
+            
+        - id: identity-service
+          uri: lb://identity-service
+          predicates:
+            - Path=/api/v1/users/**
+
     consul:
       discovery:
         instanceId: ${spring.application.name}
