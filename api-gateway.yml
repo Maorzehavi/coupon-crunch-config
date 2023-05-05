@@ -12,7 +12,7 @@ spring:
           predicates:
             - Path=/api/v1/coupons/**
           filters:
-            - AuthFilter
+            - JwtAuthFilter
 
         - id: identity-service
           uri: lb://identity-service
