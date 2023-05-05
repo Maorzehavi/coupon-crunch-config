@@ -12,6 +12,7 @@ spring:
           predicates:
             - Path=/api/v1/coupons/**
           filters:
+            - ApikeyAuthFilter
             - JwtAuthFilter
 
         - id: identity-service
