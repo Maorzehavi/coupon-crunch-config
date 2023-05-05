@@ -7,6 +7,14 @@ spring:
         locator:
           enabled: true
       routes:
+        - id: company-service
+          uri: lb://company-service
+          predicates:
+            - Path=/api/v1/companies/**
+          filters:
+            - ApikeyAuthFilter
+            - JwtAuthFilter
+
         - id: coupon-service
           uri: lb://coupon-service
           predicates:
@@ -14,6 +22,7 @@ spring:
           filters:
             - ApikeyAuthFilter
             - JwtAuthFilter
+          
 
         - id: identity-service
           uri: lb://identity-service
@@ -38,9 +47,6 @@ management:
         include: "*"
 
 server:
-  port: 8081
+  port: 8080
   error:
     include-message: always
-
-jwt:
-  secret: 576D5A7134743777217A25432646294A404E635266556A586E3272357538782F
