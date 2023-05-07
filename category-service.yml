@@ -2,7 +2,7 @@ spring:
   application:
     name: company-service
   datasource:
-    url: jdbc:mysql://localhost:1002/companies_db?allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://localhost:1003/companies_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
