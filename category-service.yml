@@ -1,8 +1,8 @@
 spring:
   application:
-    name: company-service
+    name: category-service
   datasource:
-    url: jdbc:mysql://localhost:1003/companies_db?allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://localhost:1003/categories_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -30,6 +30,3 @@ management:
     web:
       exposure:
         include: "*"
-
-api:
-  key: g4detcAAqiar3aXV5N1eyqEi0QMbI2LZ9fsUu6OvJvZH6lrbGUZKvTVMO7NqDXY3iD72sBtaZ9XwuOFWcPr64iskp04hSXwRgzQAWRgy7MLBIXhaGdtTBF75BNKLOqPt
