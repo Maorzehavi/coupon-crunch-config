@@ -7,6 +7,15 @@ spring:
         locator:
           enabled: true
       routes:
+
+        - id: customer-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/v1/customers/**
+          filters:
+            - ApikeyAuthFilter
+            - JwtAuthFilter
+
         - id: company-service
           uri: lb://company-service
           predicates:
