@@ -13,12 +13,13 @@ spring:
     show-sql: true
 
   cloud:
-    discovery:
-      instanceId: ${spring.application.name}:${random.value}
-      health-check-interval: 15s
-      config:
-        management:
-          enabled: true
+    consul:
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        health-check-interval: 15s
+        config:
+          management:
+            enabled: true
 
 server:
   port: 0
