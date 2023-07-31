@@ -7,12 +7,12 @@ spring:
         locator:
           enabled: true
       routes:
-      
         - id: purchase-service
           uri: lb://purchase-service
           predicates:
             - Path=/api/v1/purchases/**
           filters:
+            - CorsFilter   # Add CorsFilter before other filters
             - ApikeyAuthFilter
             - JwtAuthFilter
 
@@ -21,6 +21,7 @@ spring:
           predicates:
             - Path=/api/v1/customers/**
           filters:
+            - CorsFilter   # Add CorsFilter before other filters
             - ApikeyAuthFilter
             - JwtAuthFilter
 
@@ -29,6 +30,7 @@ spring:
           predicates:
             - Path=/api/v1/categories/**
           filters:
+            - CorsFilter   # Add CorsFilter before other filters
             - ApikeyAuthFilter
             - JwtAuthFilter
 
@@ -37,6 +39,7 @@ spring:
           predicates:
             - Path=/api/v1/companies/**
           filters:
+            - CorsFilter   # Add CorsFilter before other filters
             - ApikeyAuthFilter
             - JwtAuthFilter
 
@@ -45,19 +48,23 @@ spring:
           predicates:
             - Path=/api/v1/coupons/**
           filters:
+            - CorsFilter   # Add CorsFilter before other filters
             - ApikeyAuthFilter
             - JwtAuthFilter
-
 
         - id: identity-service
           uri: lb://identity-service
           predicates:
             - Path=/api/v1/auth/**
-            
+          filters:
+            - CorsFilter   # Add CorsFilter before other filters
+
         - id: identity-service
           uri: lb://identity-service
           predicates:
             - Path=/api/v1/users/**
+          filters:
+            - CorsFilter   # Add CorsFilter before other filters
 
     consul:
       discovery:
